@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="slider">
+    {% for image in images %}
+        <div class="slider__item">
+            <a href="/catalog"><img src="{{ image.image.url }}"></a>
+        </div>
+    {% endfor %}
+    </div>
+
+    <div class="content">
+        <div class="yellow">
+            <h1>Наши преимущества</h1>
+        </div>
+        <div class="container">
+            <div class="block">
+                <h2>Конкурентные цены</h2>
+                <p>Наши автомобили доступны по выгодным ценам, что поможет значительно сэкономить и приобрести автомобиль мечты</p>
+            </div>
+            <div class="block">
+                <h2>Широкий выбор</h2>
+                <p>Наш ассортимент автомобилей предлагает множество вариантов, отвечающих разнообразным предпочтениям и потребностям</p>
+            </div>
+            <div class="block">
+                <h2>Надежность</h2>
+                <p>Мы предоставляем полную информацию о каждом автомобиле</p>
+            </div>
+            <div class="block">
+                <h2>Индивидуальный подход</h2>
+                <p>Мы предоставляем консультации экспертов для помощи в выборе автомобиля</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="red">
+            <h1>Каталог</h1>
+        </div>
+        <div class="container-img">
+            {% for car in cars %}
+                <div class="image-block black">
+                    <a href="{{ car.absolute_url }}">
+                        <img src="{{ car.image_url }}">
+                        <h2>{{ car.title }}</h2>
+                        <p>{{ car.price_in_rub }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+            <div class="image-block arrow black desktop">
+                <a href="/catalog">
+                    <img src="{% static 'img/Arrow.svg' %}">
+                    <h2>Перейти в каталог</h2>
+                </a>
+            </div>
+            <div class="image-block arrow black mobile">
+                <a href="/catalog">
+                    <img src="{% static 'img/Arrow_mobile1.svg' %}">
+                    <h2>Перейти в каталог</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="black">
+            <h1>Социальные сети</h1>
+        </div>
+        <div class="container-socials">
+            <div class="block-social telegram">
+                <img src="{% static 'img/telegram.svg' %}" alt="">
+                <a href=""><h1>Telegram канал</h1></a>
+            </div>
+            <div class="block-social red">
+                <img src="{% static 'img/Youtube.svg' %}" alt="">
+                <a href=""><h1>YouTube канал</h1></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-dark">
+        <div class="center">
+            <div class="white">
+                <h1>Оставить заявку</h1>
+                <p>Давайте вместе найдем автомобиль вашей мечты</p>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="container-socials">
+                    <div class="block-social white">
+                        <img src="{% static 'img/user.svg' %}" alt="">
+                        <label>
+                            <input type="text" placeholder="Имя и фамилия" name="fullname">
+                        </label>
+                    </div>
+                    <div class="block-social phone">
+                        <img src="{% static 'img/Phone.svg' %}" alt="">
+                        <label>
+                            <input type="tel" maxlength="12" placeholder="Телефон" name="phone">
+                        </label>
+                    </div>
+                </div>
+                <div class="container-socials">
+                    <div class="block-social white send full">
+                        <img src="{% static 'img/send.svg' %}" alt="">
+                        <button type="submit" value="submit">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="red">
+            <h1>Блог</h1>
+        </div>
+        <div class="container-img news">
+            {% for article in articles %}
+                <div class="image-block black news article">
+                    <a href="{{ article.absolute_url }}">
+                        <img src="{{ article.image.url }}">
+                        <h2>{{ article.title }}</h2>
+                    </a>
+                </div>
+            {% endfor %}
+            <div class="image-block black news article read">
+                <a href="/blog">
+                    <img src="{% static 'img/read.svg' %}">
+                    <h2>Читать блог</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

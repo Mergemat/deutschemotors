@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Парсер</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
+        {% block head %}
+        {% endblock head %}
+    </head>
+    <body style="padding: 16px">
+        <form action="/parser/" method="post">
+            {% csrf_token %}
+            <input name="link"
+                   placeholder="Вставьте ссылку"
+                   style="border-color: black;
+                          color: black;
+                          border: 2px solid gray;
+                          border-radius: 8px;
+                          width: 50vw" />
+            <button type="submit"
+                    class="button"
+                    style="color: white;
+                           padding: 10px;
+                           background: black;
+                           border-radius: 8px">Подтвердить</button>
+        </form>
+        <div style="padding: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px">
+            {% if car %}
+                <div style="display: flex; gap: 15px">
+                    <img src={{ car.image_url }} width=300 />
+                    <div style ="display: flex; flex-direction: column; gap: 15px">
+                        <h1>{{ car.title }}</h1>
+                        <h1>{{ car.price }} €</h1>
+                    </div>
+                </div>
+                <table>
+                    {% for key, value in technical_data %}
+                        <tr>
+                            <td>
+                                <h2>{{ key }}</h2>
+                            </td>
+                            <td>
+                                <h2>{{ value }}</h2>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <div style="display: flex; flex-wrap: wrap; gap:5px;">
+                    {% for item in equipment %}
+                        <div style="padding: 10px; background-color: gray; color:white;">
+                            <h2>{{ item }}</h2>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </body>
+</html>

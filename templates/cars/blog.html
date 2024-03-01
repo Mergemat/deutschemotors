@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content">
+        <div class="black">
+            <h1>Блог</h1>
+        </div>
+        <div class="container-img news">
+            {% for article in articles %}
+                <div class="image-block black news article">
+                    <a href="{{ article.absolute_url }}">
+                        <img src="{{ article.image.url }}">
+                        <h2>{{ article.title }}</h2>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

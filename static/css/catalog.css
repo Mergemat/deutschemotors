@@ -1,0 +1,9 @@
+.image-block {
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.container-img {
+    gap: 12px;
+    justify-content: left;
+}

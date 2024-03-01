@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'Lato';
+    src: url(Lato-Light.ttf);
+    src: url(Lato-Light.woff);
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url(OpenSans-Light.woff);
+}
+a {
+    margin-bottom: 10px;
+}
+
+p {
+    font-family: 'Lato';
+    font-size: 20px;
+}
+
+.image-block h1 {
+    padding-left: 0px;
+}
+
+.table-block {
+    width: 60%;
+}
+
+.table-block h1 {
+    padding-left: 0px;
+}
+
+.table {
+	width: 100%;
+	margin-bottom: 20px;
+	border: 1px solid #dddddd;
+	border-collapse: collapse;
+    font-size: 20px;
+    font-family: Lato;
+}
+
+.table th {
+	font-weight: bold;
+	padding: 5px;
+	border: 1px solid #dddddd;
+}
+.table td {
+	border: 1px solid #dddddd;
+	padding: 5px;
+}
+
+.configuration-container {
+    overflow: hidden;
+}
+
+.configuration-options {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.configuration-options p {
+    margin-bottom: 2px;
+    margin-right: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .table-block {
+        width: 100%;
+    }
+}
