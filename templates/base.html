@@ -10,15 +10,48 @@
     <title>{% block title %}Deutsche Motors{% endblock title %}</title>
 
     <link rel="stylesheet" href="{% static 'css/globals.css' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/@tolgee/web/dist/tolgee-web.umd.min.js"></script>
+
     {% block head %}{% endblock head %}
 </head>
 <body>
-    {% include 'header.html' %}
+  {% include 'header.html' %}
+  <h1>{{ hui}}>
 
-    {% block content %}
-    {% endblock content %}
+  {% block content %}
+  {% endblock content %}
 
-    {% include 'footer.html' %}
-    {% include 'scripts.html' %}
+  {% include 'footer.html' %}
+  {% include 'scripts.html' %}
+    <script defer>
+
+      const { ContextUi, DevBackend, Tolgee, InContextTools, FormatSimple, BackendFetch } =
+        window['@tolgee/web'];
+
+      const tolgee = Tolgee()
+        .use(InContextTools())
+        .use(DevBackend())
+        .use(FormatSimple())
+        .use(BackendFetch())
+        .use(ContextUi())
+        .init({
+          // ############################################################
+          // ## you should never leak your API key                     ##
+          // ## remove it in for production publicly accessible site   ##
+          // ############################################################
+          apiKey: 'tgpak_gu3tcmk7gruhcologntxg3ttgjvdgmdfgbzte3jqofydc2lsni',
+          apiUrl: 'https://app.tolgee.io',
+          defaultLanguage: 'ru',
+          observerType: 'text',
+          observerOptions: { inputPrefix: '$', inputSuffix: '$' },
+        });
+import('@tolgee/web/tools').then((module) => {
+    tolgee.addPlugin(module.InContextTools())
+  })
+      tolgee.run();
+      tolgee.on('update', () => {
+        console.log('hui')
+      });
+    </script>
 </body>
 </html>

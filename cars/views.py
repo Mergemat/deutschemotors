@@ -18,6 +18,7 @@ def index_view(request):
         images = MainCarouselImage.objects.order_by("position")[:8]
         cars = Car.objects.all()[:5]
         articles = Article.objects.all()[:5]
+        print(cars)
         return render(
             request,
             "cars/index.html",

@@ -11,7 +11,7 @@
             {% for car in cars %}
                 <div class="image-block black">
                     <a href="{{ car.absolute_url }}">
-                        <img src="{{ car.image.url }}">
+                        <img src="{{ car.image_url }}">
                         <h2>{{ car.title }}</h2>
                         <p>{{ car.price_in_rub }} руб</p>
                     </a>

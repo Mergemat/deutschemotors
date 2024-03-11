@@ -54,7 +54,6 @@ def button_click(browser, by, selector):
 
 
 def browser_init():
-    geckodriver_autoinstaller.install()
     options = Options()
     options.add_argument("--headless")
     options.add_argument("--incognito")
