@@ -6,7 +6,6 @@ from Deutsche_Motors.base_model import AbstractBaseModel
 from django.shortcuts import reverse
 import random
 
-
 class MainCarouselImage(models.Model):
     position = models.PositiveIntegerField(default=1)
     image = models.ImageField()
@@ -18,7 +17,6 @@ class MainCarouselImage(models.Model):
 
     def __str__(self):
         return str(self.image.name)
-
 
 class Equipment(models.Model):
     text = models.CharField(max_length=255)

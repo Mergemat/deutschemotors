@@ -1,9 +1,10 @@
-.image-block {
-    width: 300px;
-    margin-bottom: 20px;
-}
-
 .container-img {
     gap: 12px;
     justify-content: left;
+}
+
+@media screen and (max-width: 768px) {
+    .image-block {
+        width: 100%;
+    }
 }
