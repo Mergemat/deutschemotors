@@ -71,13 +71,15 @@ def parse_by_link(link):
     wait = WebDriverWait(browser, 15)
 
     errors = [NoSuchElementException, ElementNotInteractableException]
-    wait.until(
-        lambda _: browser.find_element(
-            By.XPATH, '//button[text()="Einverstanden"]'
-        ).is_displayed()
-    )
-
-    button_click(browser, By.XPATH, '//button[text()="Einverstanden"]')
+    try:
+        wait.until(
+            lambda _: browser.find_element(
+                By.XPATH, '//button[text()="Einverstanden"]'
+            ).is_displayed()
+        )
+        button_click(browser, By.XPATH, '//button[text()="Einverstanden"]')
+    except:
+        return None
 
     car = {}
 
