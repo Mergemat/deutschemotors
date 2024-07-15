@@ -58,6 +58,7 @@ def parser_view(request):
     if request.POST:
         car = parse_by_link(request.POST.get("link"))
         car_model = Car(
+            url=request.POST.get("link"),
             slug=slugify(car["title"] + "-" + str(random.getrandbits(4))),
             title=car["title"],
             price=car["price"],
