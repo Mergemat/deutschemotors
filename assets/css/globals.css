@@ -109,7 +109,7 @@ p {
 
 .links-container {
     display: flex;
-    gap: 20px; /* Расстояние между ссылками */
+    gap: 20px; 
 }
 
 .content {
@@ -127,7 +127,7 @@ p {
 }
 
 .block {
-    width: 50%; /* Ширина каждого блока для двух колонок */
+    width: 50%; 
     padding-bottom: 20px;
 }
 
@@ -222,26 +222,89 @@ p {
     margin: auto;
 }
 
-input, button {
-    height: 50px;
-    background-color: #222222;
-    color: white;
-    font-size: 24px;
-    background: none;
-    border: none;
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; 
+}
+
+.calculator-form {
+    display: flex;
+    max-width: 600px; 
+    width: 100%; 
+    flex-wrap: wrap; 
+    gap: 10px; 
 }
 
 input {
-    width: 100%;
+    flex: 1; 
+    height: 60px;
     padding-left: 20px;
+    color: black;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    font-size: 18px;
+    box-sizing: border-box; 
 }
 
-.send img {
-    width: 40px;
+button {
+    height: 50px;
+    color: white; 
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer; 
+    box-sizing: border-box; 
 }
 
-.full {
-    width: 100%;
+button:hover {
+    background-color: #a50000; 
+}
+
+.result {
+    margin-top: 30px;
+    text-align: center; 
+    padding: 20px;
+}
+
+.result h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.result p {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.result .link {
+    font-size: 18px;
+    color: #333; 
+}
+
+.result .price {
+    font-size: 28px;
+    color: #D60000; 
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 768px) {
+    .calculator-form {
+        flex-direction: column; 
+    }
+
+    input {
+        flex: none;
+        margin-bottom: 10px; 
+        height: 60px;
+    }
+
+    button {
+        width: 50%; 
+        margin: 0 auto; 
+    }
 }
 
 .news {

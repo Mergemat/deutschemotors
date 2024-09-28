@@ -9,6 +9,7 @@ from cars.views import (
     catalog_view,
     blog_view,
     parser_view,
+    calculator_view,  # Импортируйте ваше представление для калькулятора
 )
 from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
@@ -26,6 +27,7 @@ urlpatterns = [
     path("catalog/", catalog_view, name="catalog"),
     path("product/<slug:slug>/", car_detail_view, name="product"),
     path("blog/<slug:slug>/", blog_detail_view, name="blog-detail"),
+    path("calculator/", calculator_view, name="calculator"),  # Добавьте маршрут для калькулятора
     re_path(
         r"^robots\.txt$",
         TemplateView.as_view(
@@ -39,4 +41,3 @@ urlpatterns = [
         name="django.contrib.sitemaps.views.sitemap",
     ),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-

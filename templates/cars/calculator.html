@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div class="content">
+    <div class="red">
+      <h1>Калькулятор</h1>
+      <p>Вставьте ссылку на mobile.de/ru в форму ниже, и мы просчитаем стоимость автомобиля</p>
+    </div>
+
+    <div class="form-container">
+      <form method="POST" action="#" class="calculator-form" id="calculator-form">
+        {% csrf_token %}
+        <input type="text" name="link" placeholder="https://mobile.de/ru..." required />
+        <button type="submit">Рассчитать</button>
+      </form>
+    </div>
+
+    <div id="loading" style="width: 100%; text-align: center; display: none;">
+      <h1 style="font-size: 20px;">Подождите, идет рассчёт...</h1>
+    </div>
+
+    {% if error %}
+      <div class="result" id="result">
+        <h2>Ошибка расчёта:</h2>
+        <p>{{ error }}</p>
+      </div>
+    {% endif %}
+    {% if price and not error %}
+      <div class="result" id="result">
+        <h2>Результат расчёта:</h2>
+        <a href="{{ link }}" style="font-size: 20px; text-decoration: underline;">Ссылка</a>
+        <h2>Цена: {{ price }}</h2>
+      </div>
+    {% endif %}
+    <script>
+      document
+        .getElementById('calculator-form')
+        .addEventListener('submit', function (e) {
+          const formContainer = document.getElementById('loading');
+          formContainer.style.display = 'block';
+        });
+    </script>
+  </div>
+{% endblock %}

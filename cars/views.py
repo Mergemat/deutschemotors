@@ -2,9 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.text import slugify
-from cars.utils.parser import parse_by_link
+from cars.utils.parser import parse_by_link, parse_price
 import random
-
+import locale
 from .models import Article, Car, MainCarouselImage, Equipment
 
 
@@ -54,11 +54,30 @@ def blog_detail_view(request, slug):
     return render(request, "cars/blog_detail.html", {"article": article})
 
 
+def calculator_view(request):
+    if request.POST:
+        price = parse_price(request.POST.get("link"))
+        if price == -1:
+            return render(
+                request,
+                "cars/calculator.html",
+                {"error": "Машина не найдена. Проверьте ссылку"},
+            )
+        print(f"Price: {price:,.2f} ₽")
+
+        return render(
+            request,
+            "cars/calculator.html",
+            {"price": f"{price:,.2f} ₽", "link": request.POST.get("link")},
+        )
+
+    return render(request, "cars/calculator.html")  # Путь к вашему шаблону
+
+
 def parser_view(request):
     if request.POST:
         car = parse_by_link(request.POST.get("link"))
         car_model = Car(
-            url=request.POST.get("link"),
             slug=slugify(car["title"] + "-" + str(random.getrandbits(4))),
             title=car["title"],
             price=car["price"],

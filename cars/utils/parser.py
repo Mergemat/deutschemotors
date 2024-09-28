@@ -55,7 +55,7 @@ def button_click(browser, by, selector):
 
 def browser_init():
     options = Options()
-    options.add_argument("--headless")
+    # options.add_argument("--headless")
     options.add_argument("--incognito")
     browser = webdriver.Firefox(options=options)
     browser.delete_all_cookies()
@@ -71,15 +71,13 @@ def parse_by_link(link):
     wait = WebDriverWait(browser, 15)
 
     errors = [NoSuchElementException, ElementNotInteractableException]
-    try:
-        wait.until(
-            lambda _: browser.find_element(
-                By.XPATH, '//button[text()="Einverstanden"]'
-            ).is_displayed()
-        )
-        button_click(browser, By.XPATH, '//button[text()="Einverstanden"]')
-    except:
-        return None
+    wait.until(
+        lambda _: browser.find_element(
+            By.XPATH, '//button[text()="Einverstanden"]'
+        ).is_displayed()
+    )
+
+    button_click(browser, By.XPATH, '//button[text()="Einverstanden"]')
 
     car = {}
 
@@ -104,3 +102,25 @@ def parse_by_link(link):
     browser.quit()
 
     return car
+
+
+def parse_price(link):
+    print("init")
+    browser = browser_init()
+    print("init done")
+    wait = WebDriverWait(browser, 1)
+
+    print("waiting...")
+    browser.get(link)
+    print("waiting done")
+
+    try:
+        price = browser.find_element(By.CSS_SELECTOR, ".header-price-box")
+    except NoSuchElementException:
+        browser.quit()
+        return -1
+
+    price = int(price.text.split("€")[0].replace(" ", "")) * 102
+    browser.quit()
+
+    return price
