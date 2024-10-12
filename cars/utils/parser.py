@@ -55,7 +55,7 @@ def button_click(browser, by, selector):
 
 def browser_init():
     options = Options()
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
     options.add_argument("--incognito")
     browser = webdriver.Firefox(options=options)
     browser.delete_all_cookies()
