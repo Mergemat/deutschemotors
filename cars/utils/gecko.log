@@ -1,0 +1,15 @@
+1729076549802	geckodriver	INFO	Listening on 127.0.0.1:52611
+1729076549810	webdriver::server	DEBUG	-> POST /session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, ... xOptions": {"binary": "/snap/bin/firefox", "prefs": {"remote.active-protocols": 3}, "args": ["--headless", "--incognito"]}}}}
+1729076549811	geckodriver::capabilities	DEBUG	Trying to read firefox version from ini files
+1729076549811	geckodriver::capabilities	DEBUG	Trying to read firefox version from binary
+1729076550168	geckodriver::capabilities	DEBUG	Found version 131.0.3
+1729076550172	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/sna ... to" "--remote-debugging-port" "46363" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileUiYpFl"
+1729076550172	geckodriver::marionette	DEBUG	Waiting 60s to connect to browser on 127.0.0.1
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+1729076680300	mozrunner::runner	DEBUG	Killing process 23496
+1729076680312	geckodriver::browser	DEBUG	Browser process stopped: signal: 9 (SIGKILL)
+1729076680313	webdriver::server	DEBUG	<- 500 Internal Server Error {"value":{"error":"timeout","message":"Failed to read marionette port","stacktrace":""}}
+1729076881201	geckodriver	INFO	Listening on 127.0.0.1:44197
+1729076912806	geckodriver	INFO	Listening on 127.0.0.1:50981

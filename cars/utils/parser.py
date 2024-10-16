@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 from selenium.common import NoSuchElementException, ElementNotInteractableException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -54,10 +55,13 @@ def button_click(browser, by, selector):
 
 
 def browser_init():
+    firefoxdriver_bin = "/snap/bin/firefox.geckodriver"
     options = Options()
+    options.binary_location = "/snap/bin/firefox"
     options.add_argument("--headless")
     options.add_argument("--incognito")
-    browser = webdriver.Firefox(options=options)
+    service = Service(executable_path=firefoxdriver_bin, service_args=['--log', 'debug'], log_output="gecko.log")
+    browser = webdriver.Firefox(options=options, service=service)
     browser.delete_all_cookies()
 
     return browser
@@ -124,3 +128,7 @@ def parse_price(link):
     browser.quit()
 
     return price
+
+if __name__ == '__main__':
+    parse_price('https://www.mobile.de/ru/%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%BE%D0%B1%D0%B8%D0%BB%D1%8C/Volkswagen-Golf-VII-Vari.-2.0D-GTD-DSG-NAVI/vhc:car/pg:vipcar/405789074.html')
+

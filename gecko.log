@@ -1,0 +1,42 @@
+1729076736056	geckodriver	INFO	Listening on 127.0.0.1:60913
+1729076736081	webdriver::server	DEBUG	-> POST /session {"capabilities": {"firstMatch": [{}], "alwaysMatch": {"browserName": "firefox", "acceptInsecureCerts": true, ... xOptions": {"binary": "/snap/bin/firefox", "prefs": {"remote.active-protocols": 3}, "args": ["--headless", "--incognito"]}}}}
+1729076736081	geckodriver::capabilities	DEBUG	Trying to read firefox version from ini files
+1729076736081	geckodriver::capabilities	DEBUG	Trying to read firefox version from binary
+mkdir: cannot create directory ‘/run/user/1000’: Permission denied
+1729076736798	geckodriver::capabilities	DEBUG	Found version 131.0.3
+1729076736802	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/sna ... to" "--remote-debugging-port" "50339" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilelTmUvx"
+1729076736802	geckodriver::marionette	DEBUG	Waiting 60s to connect to browser on 127.0.0.1
+mkdir: cannot create directory ‘/run/user/1000’: Permission denied
+*** You are running in headless mode.
+[GFX1-]: glxtest: Unable to open a connection to the X server
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.669: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.670: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.670: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.670: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Unnamed thread 7fb2109b1a60] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.672: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.735: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.735: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.736: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+[Parent 24861, Main Thread] WARNING: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.: 'glib warning', file /build/firefox/parts/firefox/build/toolkit/xre/nsSigHandlers.cpp:187
+
+(firefox:24861): dconf-CRITICAL **: 14:06:42.736: unable to create directory '/run/user/1000/snap.firefox/dconf': Permission denied.  dconf will not work properly.
+1729076866933	mozrunner::runner	DEBUG	Killing process 24861
+1729076866948	geckodriver::browser	DEBUG	Browser process stopped: signal: 9 (SIGKILL)
+1729076866949	webdriver::server	DEBUG	<- 500 Internal Server Error {"value":{"error":"timeout","message":"Failed to read marionette port","stacktrace":""}}
