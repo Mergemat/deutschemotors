@@ -5,6 +5,8 @@ from selenium.common import NoSuchElementException, ElementNotInteractableExcept
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 import geckodriver_autoinstaller
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 
 ITEMS = [
@@ -55,9 +57,9 @@ def button_click(browser, by, selector):
 
 
 def browser_init():
-    firefoxdriver_bin = "/snap/bin/firefox.geckodriver"
+    firefoxdriver_bin = "/usr/local/bin/geckodriver"
     options = Options()
-    options.binary_location = "/snap/bin/firefox"
+    options.binary_location = "/usr/bin/firefox/firefox"
     options.add_argument("--headless")
     options.add_argument("--incognito")
     service = Service(executable_path=firefoxdriver_bin, service_args=['--log', 'debug'], log_output="gecko.log")

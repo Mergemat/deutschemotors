@@ -40,3 +40,13 @@ mkdir: cannot create directory ‘/run/user/1000’: Permission denied
 1729076866933	mozrunner::runner	DEBUG	Killing process 24861
 1729076866948	geckodriver::browser	DEBUG	Browser process stopped: signal: 9 (SIGKILL)
 1729076866949	webdriver::server	DEBUG	<- 500 Internal Server Error {"value":{"error":"timeout","message":"Failed to read marionette port","stacktrace":""}}
+mkdir: cannot create directory ‘/run/user/1000’: Permission denied
+/home/django/snap/firefox/5134/Desktop was removed, reassigning DESKTOP to homedir
+/home/django/snap/firefox/5134/Downloads was removed, reassigning DOWNLOAD to homedir
+/home/django/snap/firefox/5134/Templates was removed, reassigning TEMPLATES to homedir
+/home/django/snap/firefox/5134/Public was removed, reassigning PUBLICSHARE to homedir
+/home/django/snap/firefox/5134/Documents was removed, reassigning DOCUMENTS to homedir
+/home/django/snap/firefox/5134/Music was removed, reassigning MUSIC to homedir
+/home/django/snap/firefox/5134/Pictures was removed, reassigning PICTURES to homedir
+/home/django/snap/firefox/5134/Videos was removed, reassigning VIDEOS to homedir
+1729077000925	geckodriver	INFO	Listening on 127.0.0.1:49741
