@@ -9,26 +9,26 @@ from .models import Article, Car, MainCarouselImage, Equipment
 
 
 def index_view(request):
+    images = MainCarouselImage.objects.order_by("position")[:8]
+    cars = Car.objects.all()[:5]
+    articles = Article.objects.all()[:5]
+    print(cars)
     if request.POST:
         price = parse_price(request.POST.get("link"))
         if price == -1:
             return render(
                 request,
                 "cars/index.html",
-                {"error": "Машина не найдена. Проверьте ссылку"},
+                {"error": "Машина не найдена. Проверьте ссылку", "images": images, "cars": cars, "articles": articles},
             )
         print(f"Price: {price:,.2f} ₽")
 
         return render(
             request,
             "cars/index.html",
-            {"price": f"{price:,.2f} ₽", "link": request.POST.get("link")},
+            {"price": f"{price:,.2f} ₽", "link": request.POST.get("link"), "images": images, "cars": cars, "articles": articles},
         )
     else:
-        images = MainCarouselImage.objects.order_by("position")[:8]
-        cars = Car.objects.all()[:5]
-        articles = Article.objects.all()[:5]
-        print(cars)
         return render(
             request,
             "cars/index.html",
