@@ -12,5 +12,4 @@ class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
-admin.site.register(MainCarouselImage)
 admin.site.register(Equipment)
