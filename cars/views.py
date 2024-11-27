@@ -10,10 +10,20 @@ from .models import Article, Car, MainCarouselImage, Equipment
 
 def index_view(request):
     if request.POST:
-        fullname = request.POST.get("fullname")
-        phone = request.POST.get("phone")
-        # send nudes logic <
-        return HttpResponse("Success")  # Add this line
+        price = parse_price(request.POST.get("link"))
+        if price == -1:
+            return render(
+                request,
+                "cars/index.html",
+                {"error": "Машина не найдена. Проверьте ссылку"},
+            )
+        print(f"Price: {price:,.2f} ₽")
+
+        return render(
+            request,
+            "cars/index.html",
+            {"price": f"{price:,.2f} ₽", "link": request.POST.get("link")},
+        )
     else:
         images = MainCarouselImage.objects.order_by("position")[:8]
         cars = Car.objects.all()[:5]
