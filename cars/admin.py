@@ -3,13 +3,7 @@ from .models import Car, Article, MainCarouselImage, Equipment
 from .forms import AddCarForm, EditCarForm
 
 
-@admin.register(Car)
-class CarAdmin(admin.ModelAdmin):
-    def get_form(self, request, obj=None, **kwargs):
-        if obj is None:
-            return AddCarForm
-        else:
-            return EditCarForm
+admin.site.register(Car)
 
 
 @admin.register(Article)
